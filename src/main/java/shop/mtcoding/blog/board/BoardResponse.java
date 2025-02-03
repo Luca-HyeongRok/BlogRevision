@@ -20,8 +20,10 @@ public class BoardResponse {
             this.content = board.getContent();
             this.isOwner = false;
 
-            if (board.getUser().getId() == sessionUser.getId()) {
-                isOwner = true;
+            if (sessionUser != null) {
+                if (board.getUser().getId() == sessionUser.getId()) {
+                    isOwner = true;
+                }
             }
             this.userId = board.getUser().getId();
             this.username = board.getUser().getUsername();
